@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  /* NotebookLM Premium Theme Colors */
+  --notebook-bg: #131314;        /* Main Chat Background */
+  --notebook-sidebar: #1e1f20;   /* Left Sidebar Background */
+  --notebook-card: #282a2c;      /* User Bubble & Active Elements */
+  --notebook-border: #3c4043;    /* Professional Borders */
+  --notebook-blue: #a8c7fa;      /* Google Blue Accent */
+  --text-main: #e3e3e3;          /* High emphasis text */
+  --text-sub: #9aa0a6;           /* Low emphasis / labels */
+}
+
+@theme inline {
+  --color-background: var(--notebook-bg);
+  --color-foreground: var(--text-main);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--notebook-bg);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Premium Scrollbar (NotebookLM Style) --- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--notebook-border);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5f6368;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- NotebookLM Components Styling --- */
+
+/* Sidebar logic */
+.bg-sidebar {
+  background-color: var(--notebook-sidebar);
+}
+
+/* NotebookLM Citation Bubbles (Small & Crisp) */
+.citation-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(168, 199, 250, 0.1); /* Subtle Blue Tint */
+  color: var(--notebook-blue);
+  font-size: 10px;
+  font-weight: 700;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  margin: 0 4px;
+  border: 1px solid rgba(168, 199, 250, 0.3);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: baseline;
+  position: relative;
+  top: -2px;
+}
+
+.citation-bubble:hover {
+  background-color: var(--notebook-blue);
+  color: #000;
+  transform: translateY(-1px) scale(1.1);
+  box-shadow: 0 2px 8px rgba(168, 199, 250, 0.4);
+}
+
+/* Input Gradient Overlay (The NotebookLM Fade effect) */
+.bg-input-gradient {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--notebook-bg) 25%,
+    var(--notebook-bg) 100%
+  );
+}
+
+/* NotebookLM Question Pills (Follow-up) */
+.suggestion-pill {
+  background-color: var(--notebook-sidebar);
+  border: 1px solid var(--notebook-border);
+  color: var(--text-main);
+  transition: all 0.25s ease;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+.suggestion-pill:hover {
+  background-color: var(--notebook-card);
+  border-color: var(--notebook-blue);
+  color: var(--notebook-blue);
+}
+
+/* --- Professional Micro-Animations --- */
+@keyframes slide-up {
+  from { 
+    transform: translateY(8px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.animate-suggestion {
+  animation: slide-up 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* AI Response text spacing */
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+

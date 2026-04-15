@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-dotenv
+chromadb
+ollama
+pdfminer.six
+firecrawl-py
+sentence-transformers
+pydantic
+python-multipart
+youtube-transcript-api
+
