@@ -328,7 +328,7 @@ export default function Home() {
              >
                 Reset Chat
              </button>
-             <UserButton afterSignOutUrl="/" />
+             <UserButton fallbackRedirectUrl="/" />
           </div>
         </header>
 
